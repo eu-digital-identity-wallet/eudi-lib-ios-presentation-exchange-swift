@@ -1,3 +1,4 @@
 public class PresentationExchange {
-  public init() {}
+  public init() {
+  }
 }
