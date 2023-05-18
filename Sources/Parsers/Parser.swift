@@ -23,6 +23,7 @@ public protocol ParserType {
 }
 
 public class Parser: ParserType {
+  public init() { }
   public func decode<T: Codable>(json: String) -> Result<T, ParserError> {
     guard
       let data = json.data(using: .utf8)
