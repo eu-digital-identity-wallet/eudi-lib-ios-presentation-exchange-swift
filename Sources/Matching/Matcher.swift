@@ -18,6 +18,7 @@ public protocol PresentationMatcherType {
 }
 
 public class PresentationMatcher: PresentationMatcherType {
+  public init() { }
   public func match(claims: [Claim], with definition: PresentationDefinition) -> Match {
     let claimsEvaluation = claims.associate {
       (
