@@ -5,23 +5,22 @@ import Foundation
  * https://openid.net/specs/openid-4-verifiable-presentations-1_0.html#name-authorization-request
  */
 public struct AuthorizationRequestUnprocessedData: Codable {
-
-  let responseType: String?
-  let responseUri: String?
-  let redirectUri: String?
-  let presentationDefinition: String?
-  let presentationDefinitionUri: String?
-  let request: String?
-  let requestUri: String?
-  let clientMetaData: String?
-  let clientId: String?
-  let clientMetadataUri: String?
-  let clientIdScheme: String?
-  let nonce: String?
-  let scope: String?
-  let responseMode: String?
-  let state: String? // OpenId4VP specific, not utilized from ISO-23330-4
-  let idTokenType: String?
+  public let responseType: String?
+  public let responseUri: String?
+  public let redirectUri: String?
+  public let presentationDefinition: String?
+  public let presentationDefinitionUri: String?
+  public let request: String?
+  public let requestUri: String?
+  public let clientMetaData: String?
+  public let clientId: String?
+  public let clientMetadataUri: String?
+  public let clientIdScheme: String?
+  public let nonce: String?
+  public let scope: String?
+  public let responseMode: String?
+  public let state: String? // OpenId4VP specific, not utilized from ISO-23330-4
+  public let idTokenType: String?
 
   enum CodingKeys: String, CodingKey {
     case responseType = "response_type"
