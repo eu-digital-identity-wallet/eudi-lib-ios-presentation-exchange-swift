@@ -30,14 +30,14 @@ internal enum DictionaryError: LocalizedError {
   }
 }
 
-internal func getStringValue(from metaData: [String: Any], for key: String) throws -> String {
+public func getStringValue(from metaData: [String: Any], for key: String) throws -> String {
   guard let value = metaData[key] as? String else {
     throw DictionaryError.nilValue
   }
   return value
 }
 
-internal func getStringArrayValue(from metaData: [String: Any], for key: String) throws -> [String] {
+public func getStringArrayValue(from metaData: [String: Any], for key: String) throws -> [String] {
     guard let value = metaData[key] as? [String] else {
         throw DictionaryError.nilValue
     }
