@@ -1,0 +1,32 @@
+{
+  "configurations" : [
+    {
+      "id" : "BB5EFB9D-910F-4326-A738-70CED276EF4E",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:",
+          "identifier" : "PresentationExchange",
+          "name" : "PresentationExchange"
+        }
+      ]
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "PresentationExchangeTests",
+        "name" : "PresentationExchangeTests"
+      }
+    }
+  ],
+  "version" : 1
+}

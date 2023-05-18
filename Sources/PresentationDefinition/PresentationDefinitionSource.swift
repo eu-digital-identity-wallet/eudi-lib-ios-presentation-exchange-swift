@@ -6,7 +6,7 @@ public enum PresentationDefinitionSource {
   case implied(scope: [String])
 }
 
-extension PresentationDefinitionSource {
+public extension PresentationDefinitionSource {
   init(authorizationRequestObject: JSONObject) throws {
     if let presentationDefinitionObject = authorizationRequestObject[Constants.PRESENTATION_DEFINITION] as? JSONObject {
 
