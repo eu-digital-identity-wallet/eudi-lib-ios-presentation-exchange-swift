@@ -120,4 +120,32 @@ final class PresentationTests: XCTestCase {
     
     XCTAssert(!formats.filter { $0.designation == .jwt}.isEmpty)
   }
+  
+  func testAuthorizationRequestDataGivenValidInput() throws {
+    
+    let parser = Parser()
+    let authorizationResult: Result<AuthorizationRequestUnprocessedData, ParserError> = parser.decode(
+      path: "valid_authorizaton_data_example",
+      type: "json"
+    )
+    
+    let authorization = try? authorizationResult.get()
+    guard
+      let authorization = authorization
+    else {
+      XCTAssert(false)
+      return
+    }
+    
+    let definitionContainerResult: Result<PresentationDefinitionContainer, ParserError> = parser.decode(json: authorization.presentationDefinition!)
+    let definitionContainer = try? definitionContainerResult.get()
+    guard
+      let definitionContainer = definitionContainer
+    else {
+      XCTAssert(false)
+      return
+    }
+    
+    XCTAssert(definitionContainer.definition.inputDescriptors.count == 1)
+  }
 }

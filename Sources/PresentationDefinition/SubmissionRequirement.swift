@@ -25,8 +25,8 @@ public struct SubmissionRequirement: Codable {
     if let from = from {
       return Set([from])
     } else if let fromNested = fromNested {
-      let nested = fromNested.flatMap { sr in
-        return sr.allGroups
+      let nested = fromNested.flatMap { requirement in
+        return requirement.allGroups
       }
       return Set(nested)
     }
