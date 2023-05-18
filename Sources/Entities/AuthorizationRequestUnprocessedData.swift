@@ -93,8 +93,8 @@ public struct AuthorizationRequestUnprocessedData: Codable {
   }
 }
 
-extension AuthorizationRequestUnprocessedData {
-  public init?(from url: URL) {
+public extension AuthorizationRequestUnprocessedData {
+  init?(from url: URL) {
     let parameters = url.queryParameters
 
     responseType = parameters?[CodingKeys.responseType.rawValue] as? String
@@ -121,8 +121,8 @@ extension AuthorizationRequestUnprocessedData {
   }
 }
 
-internal extension AuthorizationRequestUnprocessedData {
-  private var hasClientMetaData: Bool {
+public extension AuthorizationRequestUnprocessedData {
+  var hasClientMetaData: Bool {
     return clientMetaData != nil || clientMetadataUri != nil
   }
 
