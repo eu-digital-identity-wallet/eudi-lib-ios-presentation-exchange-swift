@@ -1,5 +1,4 @@
-# EUDIW - iOS Library for Presentation Exchange
-
+# EUDIW - iOS Library for Presentation Exchange V2.0.0
 ## In a nutshell
 
 [Presentation Exchange v2](https://identity.foundation/presentation-exchange/spec/v2.0.0/) is a specification that defines:
