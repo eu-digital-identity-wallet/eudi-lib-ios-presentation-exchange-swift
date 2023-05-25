@@ -82,7 +82,6 @@ The holder should be able to verify that a JSON object is a syntactically valid 
 
 ### Dependencies (to other libs)
 
-* Presentation Exchange [Presentation Exchange](https://github.com/niscy-eudiw/presentation-exchange-swift)
 * JSONSchema support: [JSON Schema](https://github.com/kylef/JSONSchema.swift)
 * JSONPath support: [Sextant](https://github.com/KittyMac/Sextant.git)
 * Lint support: [SwiftLint](https://github.com/realm/SwiftLint.git)
