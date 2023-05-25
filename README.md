@@ -32,26 +32,27 @@ The use of this specification is mandatory by OpenID4VP
 
 ## Usage
 
-```kotlin
-import eu.europa.ec.euidw.prex.*
+```swift
+import PresentationExchange
 
-// Decoding a presentation definition json (string)
-val pdJsonStr : String = TODO("provide a presentation definition json")
-val pd = PresentationExchange.parser.decodePresentationDefinition(pdJsonStr).getOrThrow()
+let matcher = PresentationMatcher()
+let presentationDefinition = ...
+let claims = ...
+    
+let match = matcher.match(
+  claims: claims,
+  with: presentationDefinition
+)
 
-// Check whether a list of candidate claims can satisfy the 
-// presentation definition requirements
-val candidateClaims : List<Claim> = TODO("provide a list of candidate claims")
-val result = PresentationExchange.matcher.match(pd, candidateClaims)
-when(result){
-    is Matched -> println(result.matches)
-    is NotMatched -> println("Not matched")
+switch matched {
+case .matched(let matches):
+  ...
+case .notMatched:
+  ...
 }
 ```
 
-For a concrete example please check [MatcherSample](src/test/kotlin/eu/europa/ec/euidw/prex/MatcherSample.kt)
-
-Also, in the [test folder](src/test/resources/v2.0.0/presentation-definition) there are several
+In the resources folder there are several
 examples of `PresentationDefintion` JSON objects taken from directly from the
 [specification](https://github.com/decentralized-identity/presentation-exchange/tree/main/test/v2.0.0/presentation-definition)
 
@@ -79,27 +80,14 @@ The holder should be able to verify that a JSON object is a syntactically valid 
 * Adheres to the data model defined in the spec (JSON Schema validation)
 * Contain valid JSONPath expressions
 
-### Data Model
-
-```mermaid
-classDiagram
-    class PresentationDefinition
-    class InputDescriptor
-    class FieldConstraint
-    class LimitDisclosure
-    PresentationDefinition *-- "1..*" InputDescriptor
-    InputDescriptor o-- "*" FieldConstraint
-    InputDescriptor --> "0..1" LimitDisclosure
-    FieldConstraint -- "1..*" Path
-    FieldConstraint : +Boolean optional
-    note for InputDescriptor "Constraints for a single claim"
-```
-
 ### Dependencies (to other libs)
 
-* Json : [Kotlinx Serialization](https://github.com/Kotlin/kotlinx.serialization)
-* JsonSchema: [Json Kotlin Schema](https://github.com/pwall567/json-kotlin-schema)
-* JsonPath: [JsonPathKt](https://github.com/codeniko/JsonPathKt)
+* Presentation Exchange [Presentation Exchange](https://github.com/niscy-eudiw/presentation-exchange-swift)
+* JSONSchema support: [JSON Schema](https://github.com/kylef/JSONSchema.swift)
+* JSONPath support: [Sextant](https://github.com/KittyMac/Sextant.git)
+* Lint support: [SwiftLint](https://github.com/realm/SwiftLint.git)
+* JWS, JWE, and JWK support: [JOSESwift](https://github.com/airsidemobile/JOSESwift.git)
+* Testing support: [Mockingbird](https://github.com/birdrides/mockingbird.git)
 
 ### References
 
