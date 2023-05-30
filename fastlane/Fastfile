@@ -19,6 +19,7 @@ platform :ios do
     end
 
     run_tests(params)
+    
   end
 
   desc "Builds the package"
