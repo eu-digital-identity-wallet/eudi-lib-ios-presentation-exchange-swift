@@ -221,7 +221,6 @@ extension PresentationMatcher: EvaluatorType {
     notMatchingClaims: InputDescriptorEvaluationPerClaim
   ) -> Match {
     if let submissionRequirements = definition.submissionRequirements {
-      // TODO: Handle this case properly
       return .notMatched(details: [:])
 
     } else {
