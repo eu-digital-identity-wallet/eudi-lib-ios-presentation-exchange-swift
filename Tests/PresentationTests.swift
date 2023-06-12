@@ -158,7 +158,7 @@ final class PresentationTests: XCTestCase {
     )
     
     let presentationDefinition = try! result.get()
-    let format = presentationDefinition.formatContainer!.formats.first
+    let format = presentationDefinition.formatContainer!.formats.filter { $0.designation == .sdJwt}.first
     
     XCTAssertTrue(format!.designation == .sdJwt)
   }
