@@ -53,6 +53,9 @@ public enum FormatDesignation: String, Codable {
   case ldp = "LDP"
   case ldpVc = "LDP_VC"
   case ldpVp = "LDP_VP"
+
+  case sdJwt = "SD_JWT"
+  case hbJwt = "HB_JWT"
 }
 
 public struct FormatContainer: Codable, Equatable {
