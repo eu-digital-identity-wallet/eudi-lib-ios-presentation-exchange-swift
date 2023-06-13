@@ -148,4 +148,18 @@ final class PresentationTests: XCTestCase {
     
     XCTAssert(definitionContainer.definition.inputDescriptors.count == 1)
   }
+  
+  func testValidateFiExamplePresentationDefinitionExpectedData() throws {
+    
+    let parser = Parser()
+    let result: Result<PresentationDefinition, ParserError> = parser.decode(
+      path: "fi",
+      type: "json"
+    )
+    
+    let presentationDefinition = try! result.get()
+    let format = presentationDefinition.formatContainer!.formats.filter { $0.designation == .sdJwt}.first
+    
+    XCTAssertTrue(format!.designation == .sdJwt)
+  }
 }

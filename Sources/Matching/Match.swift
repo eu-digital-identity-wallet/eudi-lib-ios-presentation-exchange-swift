@@ -4,6 +4,7 @@ public enum Match {
   case matched(matches: InputDescriptorEvaluationPerClaim)
   case notMatched(details: InputDescriptorEvaluationPerClaim)
 
+  /*
   public func debug() {
     switch self {
     case .matched(matches: let matches):
@@ -19,4 +20,5 @@ public enum Match {
       print("Not able to match presentation definition. \(details)")
     }
   }
+   */
 }

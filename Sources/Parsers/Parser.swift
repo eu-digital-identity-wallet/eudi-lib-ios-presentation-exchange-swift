@@ -1,6 +1,6 @@
 import Foundation
 
-public enum ParserError: LocalizedError {
+public enum ParserError: LocalizedError, Equatable {
   case notFound
   case invalidData
   case decodingFailure(String)

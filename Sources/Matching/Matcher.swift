@@ -246,17 +246,12 @@ extension PresentationMatcher: EvaluatorType {
     definition: PresentationDefinition,
     submissionRequirement: SubmissionRequirement
   ) -> Bool {
-    let inputDescriptors = inputDescriptorsOf(
-      definition: definition,
-      submissionRequirement: submissionRequirement)
+    let inputDescriptors = inputDescriptorsOf(definition: definition, submissionRequirement: submissionRequirement)
     if let from = submissionRequirement.from {
       switch from {
-      case Rule.all.rawValue:
-        break
-      case Rule.pick.rawValue:
-        break
-      default:
-        return false
+      case Rule.all.rawValue: break
+      case Rule.pick.rawValue: break
+      default: return false
       }
     } else if let fromNested = submissionRequirement.fromNested {
       return fromNested.allSatisfy { _ in

@@ -6,6 +6,14 @@ public enum CandidateField: Equatable, CustomDebugStringConvertible {
   case found(path: JSONPath, content: String)
   case predicateEvaluated(path: JSONPath, predicateEvaluation: Bool)
 
+  public init(path: JSONPath, content: String) {
+    self = .found(path: path, content: content)
+  }
+
+  public init(path: JSONPath, predicateEvaluation: Bool) {
+    self = .predicateEvaluated(path: path, predicateEvaluation: predicateEvaluation)
+  }
+
   public var debugDescription: String {
     switch self {
     case .requiredFieldNotFound:

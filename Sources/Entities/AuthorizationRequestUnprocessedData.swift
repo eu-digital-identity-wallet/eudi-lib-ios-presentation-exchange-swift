@@ -41,6 +41,41 @@ public struct AuthorizationRequestUnprocessedData: Codable {
     case requestUri = "request_uri"
   }
 
+  public init(
+    responseType: String? = nil,
+    responseUri: String? = nil,
+    redirectUri: String? = nil,
+    presentationDefinition: String? = nil,
+    presentationDefinitionUri: String? = nil,
+    request: String? = nil,
+    requestUri: String? = nil,
+    clientMetaData: String? = nil,
+    clientId: String? = nil,
+    clientMetadataUri: String? = nil,
+    clientIdScheme: String? = nil,
+    nonce: String? = nil,
+    scope: String? = nil,
+    responseMode: String? = nil,
+    state: String? = nil,
+    idTokenType: String? = nil) {
+      self.responseType = responseType
+      self.responseUri = responseUri
+      self.redirectUri = redirectUri
+      self.presentationDefinition = presentationDefinition
+      self.presentationDefinitionUri = presentationDefinitionUri
+      self.request = request
+      self.requestUri = requestUri
+      self.clientMetaData = clientMetaData
+      self.clientId = clientId
+      self.clientMetadataUri = clientMetadataUri
+      self.clientIdScheme = clientIdScheme
+      self.nonce = nonce
+      self.scope = scope
+      self.responseMode = responseMode
+      self.state = state
+      self.idTokenType = idTokenType
+  }
+
   public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     responseType = try? container.decode(String.self, forKey: .responseType)
