@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='PresentationExchangeTests.xctest' tests='91' failures='0'>
+  <testsuite name='PresentationExchangeTests.AuthorizationRequestUnprocessedDataTests' tests='3' failures='0'>
+    <testcase classname='PresentationExchangeTests.AuthorizationRequestUnprocessedDataTests' name='testInit' time='0.002'/>
+    <testcase classname='PresentationExchangeTests.AuthorizationRequestUnprocessedDataTests' name='testInitFromDecoder' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.AuthorizationRequestUnprocessedDataTests' name='testInitFromURL' time='0.002'/>
+  </testsuite>
+  <testsuite name='PresentationExchangeTests.CoreTests' tests='6' failures='0'>
+    <testcase classname='PresentationExchangeTests.CoreTests' name='testInputDescriptorResourcesExists' time='0.002'/>
+    <testcase classname='PresentationExchangeTests.CoreTests' name='testNewPresentationMatcherGivenMatchingClaims' time='0.007'/>
+    <testcase classname='PresentationExchangeTests.CoreTests' name='testSimpleDecodableJSONPath' time='0.003'/>
+    <testcase classname='PresentationExchangeTests.CoreTests' name='testValidateBasicExampleAgainstSchema' time='0.004'/>
+    <testcase classname='PresentationExchangeTests.CoreTests' name='testValidateMdlExampleAgainstSchema' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.CoreTests' name='testValidateMinimalExampleAgainstSchema' time='0.003'/>
+  </testsuite>
+  <testsuite name='PresentationExchangeTests.DictionaryExtensionTests' tests='13' failures='0'>
+    <testcase classname='PresentationExchangeTests.DictionaryExtensionTests' name='testDictionaryEquality' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.DictionaryExtensionTests' name='testDictionaryFromFile_Failure' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.DictionaryExtensionTests' name='testDictionaryFromJSONFile_Failure_DataInitialization' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.DictionaryExtensionTests' name='testDictionaryFromJSONFile_Failure_JSONSerialization' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.DictionaryExtensionTests' name='testDictionaryFromJSONFile_Failure_MappingFail' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.DictionaryExtensionTests' name='testDictionaryFromJSONFile_Success' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.DictionaryExtensionTests' name='testDictionaryJSONData' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.DictionaryExtensionTests' name='testDictionaryToJSONString' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.DictionaryExtensionTests' name='testFilterValues' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.DictionaryExtensionTests' name='testGetStringArrayValue_Failure' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.DictionaryExtensionTests' name='testGetStringArrayValue_Success' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.DictionaryExtensionTests' name='testGetStringValue_Failure' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.DictionaryExtensionTests' name='testGetStringValue_Success' time='0.000'/>
+  </testsuite>
+  <testsuite name='PresentationExchangeTests.EntitiesTests' tests='9' failures='0'>
+    <testcase classname='PresentationExchangeTests.EntitiesTests' name='testAllGroups_NoFrom_NoFromNested_ShouldReturnEmptySet' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.EntitiesTests' name='testAllGroups_WithFrom_ShouldReturnSetWithFromGroup' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.EntitiesTests' name='testCandidateFieldDebugDescription' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.EntitiesTests' name='testCandidateFieldEquatable' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.EntitiesTests' name='testDebugNotMatchedFieldConstraints' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.EntitiesTests' name='testDebugNotMatchingClaim' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.EntitiesTests' name='testDebugUnsupportedFormat' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.EntitiesTests' name='testDescriptorMapCoding' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.EntitiesTests' name='testInitDescriptorMap' time='0.000'/>
+  </testsuite>
+  <testsuite name='PresentationExchangeTests.ErrorTests' tests='14' failures='0'>
+    <testcase classname='PresentationExchangeTests.ErrorTests' name='testErrorDescriptionConflictingData' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.ErrorTests' name='testErrorDescriptionDataInitialization' time='0.005'/>
+    <testcase classname='PresentationExchangeTests.ErrorTests' name='testErrorDescriptionFileNotFound' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.ErrorTests' name='testErrorDescriptionInvalidFormat' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.ErrorTests' name='testErrorDescriptionInvalidJSON' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.ErrorTests' name='testErrorDescriptionInvalidJWT' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.ErrorTests' name='testErrorDescriptionInvalidPresentationDefinition' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.ErrorTests' name='testErrorDescriptionJSONSerialization' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.ErrorTests' name='testErrorDescriptionMappingFail' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.ErrorTests' name='testErrorDescriptionNotSupportedOperation' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.ErrorTests' name='testParserErrorDecodingFailure' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.ErrorTests' name='testParserErrorEquatable' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.ErrorTests' name='testParserErrorInvalidData' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.ErrorTests' name='testParserErrorNotFound' time='0.000'/>
+  </testsuite>
+  <testsuite name='PresentationExchangeTests.ExtensionsTests' tests='4' failures='0'>
+    <testcase classname='PresentationExchangeTests.ExtensionsTests' name='testArraySubscriptGivenInboundsIndex' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.ExtensionsTests' name='testArraySubscriptGivenOutOfboundsIndex' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.ExtensionsTests' name='testJsonPathSyntaxIsInvalid' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.ExtensionsTests' name='testJsonPathSyntaxIsValid' time='0.001'/>
+  </testsuite>
+  <testsuite name='PresentationExchangeTests.ParserTests' tests='4' failures='0'>
+    <testcase classname='PresentationExchangeTests.ParserTests' name='testDecodeFromFileFailure' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.ParserTests' name='testDecodeFromFileSuccess' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.ParserTests' name='testDecodeFromStringFailure' time='0.004'/>
+    <testcase classname='PresentationExchangeTests.ParserTests' name='testDecodeFromStringSuccess' time='0.001'/>
+  </testsuite>
+  <testsuite name='PresentationExchangeTests.PresentationDefinitionSourceTests' tests='6' failures='0'>
+    <testcase classname='PresentationExchangeTests.PresentationDefinitionSourceTests' name='testInitFromAuthorizationRequestDataWithInvalidPresentationDefinition' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.PresentationDefinitionSourceTests' name='testInitFromAuthorizationRequestDataWithPresentationDefinitionUri' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.PresentationDefinitionSourceTests' name='testInitFromAuthorizationRequestDataWithScope' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.PresentationDefinitionSourceTests' name='testInitFromAuthorizationRequestObjectWithInvalidPresentationDefinition' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.PresentationDefinitionSourceTests' name='testInitFromAuthorizationRequestObjectWithPresentationDefinitionUri' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.PresentationDefinitionSourceTests' name='testInitFromAuthorizationRequestObjectWithScope' time='0.000'/>
+  </testsuite>
+  <testsuite name='PresentationExchangeTests.PresentationDefinitionTests' tests='2' failures='0'>
+    <testcase classname='PresentationExchangeTests.PresentationDefinitionTests' name='testPresentationDefinitionContainer' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.PresentationDefinitionTests' name='testPresentationDefinitionInitialization' time='0.001'/>
+  </testsuite>
+  <testsuite name='PresentationExchangeTests.PresentationSubmissionTests' tests='2' failures='0'>
+    <testcase classname='PresentationExchangeTests.PresentationSubmissionTests' name='testPresentationSubmissionContainer' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.PresentationSubmissionTests' name='testPresentationSubmissionInitialization' time='0.000'/>
+  </testsuite>
+  <testsuite name='PresentationExchangeTests.PresentationTests' tests='9' failures='0'>
+    <testcase classname='PresentationExchangeTests.PresentationTests' name='testAuthorizationRequestDataGivenValidInput' time='0.002'/>
+    <testcase classname='PresentationExchangeTests.PresentationTests' name='testPresentationDefinitionDecoding' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.PresentationTests' name='testPresentationDefinitionJsonStringDecoding' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.PresentationTests' name='testPreviewPresentationDefinitionDecoding' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.PresentationTests' name='testValidateFiExamplePresentationDefinitionExpectedData' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.PresentationTests' name='testValidateFormatExamplePresentationDefinitionExpectedData' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.PresentationTests' name='testValidateMdlExamplePresentationDefinitionAgainstSchema' time='0.002'/>
+    <testcase classname='PresentationExchangeTests.PresentationTests' name='testValidateMdlExamplePresentationDefinitionExpectedData' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.PresentationTests' name='testValidatePresentationDefinitionAgainstSchema' time='0.001'/>
+  </testsuite>
+  <testsuite name='PresentationExchangeTests.StringExtensionsTests' tests='10' failures='0'>
+    <testcase classname='PresentationExchangeTests.StringExtensionsTests' name='testConvertToDictionary_InvalidJSONString_ReturnsNil' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.StringExtensionsTests' name='testConvertToDictionary_ValidJSONString_ReturnsDictionary' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.StringExtensionsTests' name='testIsValidDate_InvalidDateFormat_ReturnsFalse' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.StringExtensionsTests' name='testIsValidDate_ValidDateFormat_ReturnsTrue' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.StringExtensionsTests' name='testIsValidJSONPath_InvalidJSONPath_ReturnsFalse' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.StringExtensionsTests' name='testIsValidJSONPath_ValidJSONPath_ReturnsTrue' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.StringExtensionsTests' name='testIsValidJSONString_InvalidJSONString_ReturnsFalse' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.StringExtensionsTests' name='testIsValidJSONString_ValidJSONString_ReturnsTrue' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.StringExtensionsTests' name='testIsValidJWT_InvalidJWT_ReturnsFalse' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.StringExtensionsTests' name='testIsValidJWT_ValidJWT_ReturnsTrue' time='0.000'/>
+  </testsuite>
+  <testsuite name='PresentationExchangeTests.SubmissionRequirementTests' tests='6' failures='0'>
+    <testcase classname='PresentationExchangeTests.SubmissionRequirementTests' name='testAllGroups_NestedGroups_ReturnsSetWithAllNestedGroups' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.SubmissionRequirementTests' name='testAllGroups_NoGroups_ReturnsEmptySet' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.SubmissionRequirementTests' name='testAllGroups_OneGroup_ReturnsSetWithOneGroup' time='0.000'/>
+    <testcase classname='PresentationExchangeTests.SubmissionRequirementTests' name='testEncode' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.SubmissionRequirementTests' name='testInitFromDecoder_ConflictingData' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.SubmissionRequirementTests' name='testInitFromDecoder_ValidData' time='0.001'/>
+  </testsuite>
+  <testsuite name='PresentationExchangeTests.URLQueryParametersTests' tests='1' failures='0'>
+    <testcase classname='PresentationExchangeTests.URLQueryParametersTests' name='testQueryParameters' time='0.000'/>
+  </testsuite>
+  <testsuite name='PresentationExchangeTests.VpTokenTests' tests='2' failures='0'>
+    <testcase classname='PresentationExchangeTests.VpTokenTests' name='testVpTokenContainer' time='0.001'/>
+    <testcase classname='PresentationExchangeTests.VpTokenTests' name='testVpTokenInitialization' time='0.001'/>
+  </testsuite>
+</testsuites>
