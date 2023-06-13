@@ -7,12 +7,12 @@ public enum CandidateField: Equatable, CustomDebugStringConvertible {
   case predicateEvaluated(path: JSONPath, predicateEvaluation: Bool)
 
   public init(path: JSONPath, content: String) {
-      self = .found(path: path, content: content)
-    }
+    self = .found(path: path, content: content)
+  }
 
-    public init(path: JSONPath, predicateEvaluation: Bool) {
-      self = .predicateEvaluated(path: path, predicateEvaluation: predicateEvaluation)
-    }
+  public init(path: JSONPath, predicateEvaluation: Bool) {
+    self = .predicateEvaluated(path: path, predicateEvaluation: predicateEvaluation)
+  }
 
   public var debugDescription: String {
     switch self {
