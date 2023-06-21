@@ -30,7 +30,7 @@ jobs:
         with:
             args: >
                 -Dsonar.organization=${{ github.repository_owner }}
-                -Dsonar.projectKey=niscy-eudi_presentation-exchange-swift
+                -Dsonar.projectKey=niscy-eudiw_presentation-exchange-swift
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}                                                                                                                                                                                                                                           
