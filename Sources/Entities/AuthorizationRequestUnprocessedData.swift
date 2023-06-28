@@ -114,8 +114,8 @@ public struct AuthorizationRequestUnprocessedData: Codable {
     try? container.encode(clientId, forKey: .clientId)
     try? container.encode(clientMetaData, forKey: .clientMetaData)
     try? container.encode(clientMetadataUri, forKey: .clientMetadataUri)
-
     try? container.encode(clientIdScheme, forKey: .clientIdScheme)
+    
     try? container.encode(nonce, forKey: .nonce)
     try? container.encode(scope, forKey: .scope)
     try? container.encode(responseMode, forKey: .responseMode)
