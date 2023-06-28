@@ -1,8 +1,9 @@
 ---
 name: build-presentation-exchange-swift
 on:
-  - push
-  - pull_request
+  push:
+    branches: [ 'main' ]
+    tags: [ v* ]
 jobs:
   build:
     runs-on: macos-latest
