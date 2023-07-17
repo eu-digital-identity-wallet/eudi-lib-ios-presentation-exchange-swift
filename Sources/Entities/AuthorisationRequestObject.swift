@@ -4,7 +4,7 @@ import Foundation
  *
  * https://openid.net/specs/openid-4-verifiable-presentations-1_0.html#name-authorization-request
  */
-public struct AuthorizationRequestUnprocessedData: Codable {
+public struct AuthorisationRequestObject: Codable {
   public let responseType: String?
   public let responseUri: String?
   public let redirectUri: String?
@@ -21,6 +21,7 @@ public struct AuthorizationRequestUnprocessedData: Codable {
   public let responseMode: String?
   public let state: String? // OpenId4VP specific, not utilized from ISO-23330-4
   public let idTokenType: String?
+  public let supportedAlgorithm: String?
 
   enum CodingKeys: String, CodingKey {
     case responseType = "response_type"
@@ -39,6 +40,7 @@ public struct AuthorizationRequestUnprocessedData: Codable {
     case idTokenType = "id_token_type"
     case request
     case requestUri = "request_uri"
+    case supportedAlgorithm = "supported_algorithm"
   }
 
   public init(
@@ -57,7 +59,9 @@ public struct AuthorizationRequestUnprocessedData: Codable {
     scope: String? = nil,
     responseMode: String? = nil,
     state: String? = nil,
-    idTokenType: String? = nil) {
+    idTokenType: String? = nil,
+    supportedAlgorithm: String? = nil
+  ) {
       self.responseType = responseType
       self.responseUri = responseUri
       self.redirectUri = redirectUri
@@ -74,6 +78,7 @@ public struct AuthorizationRequestUnprocessedData: Codable {
       self.responseMode = responseMode
       self.state = state
       self.idTokenType = idTokenType
+      self.supportedAlgorithm = supportedAlgorithm
   }
 
   public init(from decoder: Decoder) throws {
@@ -99,6 +104,8 @@ public struct AuthorizationRequestUnprocessedData: Codable {
 
     request = try? container.decode(String.self, forKey: .request)
     requestUri = try? container.decode(String.self, forKey: .requestUri)
+    
+    supportedAlgorithm = try? container.decode(String.self, forKey: .supportedAlgorithm)
   }
 
   public func encode(to encoder: Encoder) throws {
@@ -125,10 +132,12 @@ public struct AuthorizationRequestUnprocessedData: Codable {
 
     try? container.encode(request, forKey: .request)
     try? container.encode(requestUri, forKey: .requestUri)
+    
+    try? container.encode(supportedAlgorithm, forKey: .supportedAlgorithm)
   }
 }
 
-public extension AuthorizationRequestUnprocessedData {
+public extension AuthorisationRequestObject {
   init?(from url: URL) {
     let parameters = url.queryParameters
 
@@ -153,10 +162,12 @@ public extension AuthorizationRequestUnprocessedData {
 
     request = parameters?[CodingKeys.request.rawValue] as? String
     requestUri = parameters?[CodingKeys.requestUri.rawValue] as? String
+    
+    supportedAlgorithm = parameters?[CodingKeys.supportedAlgorithm.rawValue] as? String
   }
 }
 
-public extension AuthorizationRequestUnprocessedData {
+public extension AuthorisationRequestObject {
   var hasClientMetaData: Bool {
     return clientMetaData != nil || clientMetadataUri != nil
   }

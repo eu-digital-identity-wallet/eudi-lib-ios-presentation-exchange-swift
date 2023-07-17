@@ -28,7 +28,7 @@ public extension PresentationDefinitionSource {
     }
   }
 
-  init(authorizationRequestData: AuthorizationRequestUnprocessedData) throws {
+  init(authorizationRequestData: AuthorisationRequestObject) throws {
     if let presentationDefinitionString = authorizationRequestData.presentationDefinition {
       guard
         presentationDefinitionString.isValidJSONString

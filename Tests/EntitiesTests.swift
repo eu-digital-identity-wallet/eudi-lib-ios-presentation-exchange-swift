@@ -137,7 +137,7 @@ class EntitiesTests: XCTestCase {
 class AuthorizationRequestUnprocessedDataTests: XCTestCase {
     
   func testInit() {
-    let data = AuthorizationRequestUnprocessedData(
+    let data = AuthorisationRequestObject(
         responseType: "code",
         responseUri: "https://example.com/response",
         redirectUri: "https://example.com/redirect",
@@ -199,7 +199,7 @@ class AuthorizationRequestUnprocessedDataTests: XCTestCase {
     let jsonData = json.data(using: .utf8)!
     let decoder = JSONDecoder()
     
-    let data = try decoder.decode(AuthorizationRequestUnprocessedData.self, from: jsonData)
+    let data = try decoder.decode(AuthorisationRequestObject.self, from: jsonData)
     
     XCTAssertEqual(data.responseType, "code")
     XCTAssertEqual(data.responseUri, "https://example.com/response")
@@ -222,7 +222,7 @@ class AuthorizationRequestUnprocessedDataTests: XCTestCase {
   func testInitFromURL() {
     let url = URL(string: "https://example.com?response_type=code&response_uri=https%3A%2F%2Fexample.com%2Fresponse&redirect_uri=https%3A%2F%2Fexample.com%2Fredirect&presentation_definition=presentationDefinition&presentation_definition_uri=https%3A%2F%2Fexample.com%2Fdefinition&request=request&request_uri=https%3A%2F%2Fexample.com%2Frequest&client_meta_data=clientMetaData&client_id=clientId&client_metadata_uri=https%3A%2F%2Fexample.com%2Fmetadata&client_id_scheme=clientScheme&nonce=nonce&scope=scope&response_mode=responseMode&state=state&id_token_type=idTokenType")!
     
-    let data = AuthorizationRequestUnprocessedData(from: url)
+    let data = AuthorisationRequestObject(from: url)
     
     XCTAssertEqual(data?.responseType, "code")
     XCTAssertEqual(data?.responseUri, "https://example.com/response")
@@ -285,7 +285,7 @@ final class PresentationDefinitionSourceTests: XCTestCase {
   }
   
   func testInitFromAuthorizationRequestDataWithPresentationDefinitionUri() throws {
-    let authorizationRequestData = AuthorizationRequestUnprocessedData(presentationDefinitionUri: "https://example.com/presentation-definition")
+    let authorizationRequestData = AuthorisationRequestObject(presentationDefinitionUri: "https://example.com/presentation-definition")
     
     let source = try PresentationDefinitionSource(authorizationRequestData: authorizationRequestData)
     
@@ -298,7 +298,7 @@ final class PresentationDefinitionSourceTests: XCTestCase {
   }
   
   func testInitFromAuthorizationRequestDataWithScope() throws {
-    let authorizationRequestData = AuthorizationRequestUnprocessedData(scope: "openid email profile")
+    let authorizationRequestData = AuthorisationRequestObject(scope: "openid email profile")
     
     let source = try PresentationDefinitionSource(authorizationRequestData: authorizationRequestData)
     
@@ -311,7 +311,7 @@ final class PresentationDefinitionSourceTests: XCTestCase {
   }
   
   func testInitFromAuthorizationRequestDataWithInvalidPresentationDefinition() {
-    let authorizationRequestData = AuthorizationRequestUnprocessedData()
+    let authorizationRequestData = AuthorisationRequestObject()
     
     XCTAssertThrowsError(try PresentationDefinitionSource(authorizationRequestData: authorizationRequestData)) { error in
       XCTAssertEqual(error as? PresentationError, PresentationError.invalidPresentationDefinition)

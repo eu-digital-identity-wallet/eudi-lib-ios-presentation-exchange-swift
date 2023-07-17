@@ -124,7 +124,7 @@ final class PresentationTests: XCTestCase {
   func testAuthorizationRequestDataGivenValidInput() throws {
     
     let parser = Parser()
-    let authorizationResult: Result<AuthorizationRequestUnprocessedData, ParserError> = parser.decode(
+    let authorizationResult: Result<AuthorisationRequestObject, ParserError> = parser.decode(
       path: "valid_authorizaton_data_example",
       type: "json"
     )
