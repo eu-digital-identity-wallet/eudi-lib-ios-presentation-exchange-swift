@@ -1,3 +1,18 @@
+/*
+ * Copyright (c) 2023 European Commission
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 import Foundation
 
 /*
@@ -62,23 +77,23 @@ public struct AuthorisationRequestObject: Codable {
     idTokenType: String? = nil,
     supportedAlgorithm: String? = nil
   ) {
-      self.responseType = responseType
-      self.responseUri = responseUri
-      self.redirectUri = redirectUri
-      self.presentationDefinition = presentationDefinition
-      self.presentationDefinitionUri = presentationDefinitionUri
-      self.request = request
-      self.requestUri = requestUri
-      self.clientMetaData = clientMetaData
-      self.clientId = clientId
-      self.clientMetadataUri = clientMetadataUri
-      self.clientIdScheme = clientIdScheme
-      self.nonce = nonce
-      self.scope = scope
-      self.responseMode = responseMode
-      self.state = state
-      self.idTokenType = idTokenType
-      self.supportedAlgorithm = supportedAlgorithm
+    self.responseType = responseType
+    self.responseUri = responseUri
+    self.redirectUri = redirectUri
+    self.presentationDefinition = presentationDefinition
+    self.presentationDefinitionUri = presentationDefinitionUri
+    self.request = request
+    self.requestUri = requestUri
+    self.clientMetaData = clientMetaData
+    self.clientId = clientId
+    self.clientMetadataUri = clientMetadataUri
+    self.clientIdScheme = clientIdScheme
+    self.nonce = nonce
+    self.scope = scope
+    self.responseMode = responseMode
+    self.state = state
+    self.idTokenType = idTokenType
+    self.supportedAlgorithm = supportedAlgorithm
   }
 
   public init(from decoder: Decoder) throws {
@@ -104,7 +119,7 @@ public struct AuthorisationRequestObject: Codable {
 
     request = try? container.decode(String.self, forKey: .request)
     requestUri = try? container.decode(String.self, forKey: .requestUri)
-    
+
     supportedAlgorithm = try? container.decode(String.self, forKey: .supportedAlgorithm)
   }
 
@@ -122,7 +137,7 @@ public struct AuthorisationRequestObject: Codable {
     try? container.encode(clientMetaData, forKey: .clientMetaData)
     try? container.encode(clientMetadataUri, forKey: .clientMetadataUri)
     try? container.encode(clientIdScheme, forKey: .clientIdScheme)
-    
+
     try? container.encode(nonce, forKey: .nonce)
     try? container.encode(scope, forKey: .scope)
     try? container.encode(responseMode, forKey: .responseMode)
@@ -132,7 +147,7 @@ public struct AuthorisationRequestObject: Codable {
 
     try? container.encode(request, forKey: .request)
     try? container.encode(requestUri, forKey: .requestUri)
-    
+
     try? container.encode(supportedAlgorithm, forKey: .supportedAlgorithm)
   }
 }
@@ -162,7 +177,7 @@ public extension AuthorisationRequestObject {
 
     request = parameters?[CodingKeys.request.rawValue] as? String
     requestUri = parameters?[CodingKeys.requestUri.rawValue] as? String
-    
+
     supportedAlgorithm = parameters?[CodingKeys.supportedAlgorithm.rawValue] as? String
   }
 }
