@@ -1,6 +1,8 @@
 ---
 name: build-presentation-exchange-swift
 on:
+  pull_request:
+    types: [opened, reopened]
   push:
     branches: ['main']
     tags: [ v* ]
