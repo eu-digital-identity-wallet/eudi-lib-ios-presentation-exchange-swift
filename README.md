@@ -3,6 +3,7 @@
 
 [Presentation Exchange v2](https://identity.foundation/presentation-exchange/spec/v2.0.0/) is a specification that defines:
 
+
 * A way for the `Verifier` to describe proof requirements in terms of `PresentationDefintion` object
 * A way for the `Holder` to describe submissions of proofs that allign with those requirements in terms of a `PresentationSubmission`
 
