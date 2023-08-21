@@ -21,10 +21,6 @@ let package = Package(
         .upToNextMinor(from: "0.4.0")
       ),
       .package(
-        url: "https://github.com/realm/SwiftLint.git",
-        .upToNextMinor(from: "0.51.0")
-      ),
-      .package(
         url: "https://github.com/airsidemobile/JOSESwift.git",
         .upToNextMinor(from: "2.4.0")
       ),
@@ -53,9 +49,6 @@ let package = Package(
             path: "Sources",
             resources: [
               .process("Resources")
-            ],
-            plugins: [
-              .plugin(name: "SwiftLintPlugin", package: "SwiftLint")
             ]
         ),
         .testTarget(
