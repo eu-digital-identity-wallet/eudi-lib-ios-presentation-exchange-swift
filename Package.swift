@@ -21,8 +21,8 @@ let package = Package(
         .upToNextMinor(from: "0.4.0")
       ),
       .package(
-        url: "https://github.com/airsidemobile/JOSESwift.git",
-        .upToNextMinor(from: "2.4.0")
+        url: "https://github.com/niscy-eudiw/JOSESwift.git",
+        .upToNextMinor(from: "2.4.1")
       ),
       .package(
         url: "https://github.com/birdrides/mockingbird.git",
