@@ -21,10 +21,10 @@
     {
       "identity" : "joseswift",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/airsidemobile/JOSESwift.git",
+      "location" : "https://github.com/niscy-eudiw/JOSESwift.git",
       "state" : {
-        "revision" : "10ed3b6736def7c26eb87135466b1cb46ea7e37f",
-        "version" : "2.4.0"
+        "revision" : "6af6dc327fa1bbc44c7e5d6501d4e1735c80ac8c",
+        "version" : "2.4.1"
       }
     },
     {
