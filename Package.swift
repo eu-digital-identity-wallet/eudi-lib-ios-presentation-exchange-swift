@@ -21,10 +21,6 @@ let package = Package(
         .upToNextMinor(from: "0.4.0")
       ),
       .package(
-        url: "https://github.com/airsidemobile/JOSESwift.git",
-        .upToNextMinor(from: "2.4.0")
-      ),
-      .package(
         url: "https://github.com/birdrides/mockingbird.git",
         .upToNextMinor(from: "0.20.0")
       )
@@ -41,10 +37,6 @@ let package = Package(
                 name: "JSONSchema",
                 package: "JSONSchema.swift"
               ),
-              .product(
-                name: "JOSESwift",
-                package: "JOSESwift"
-              )
             ],
             path: "Sources",
             resources: [
@@ -66,10 +58,6 @@ let package = Package(
               .product(
                 name: "Sextant",
                 package: "Sextant"
-              ),
-              .product(
-                name: "JOSESwift",
-                package: "JOSESwift"
               )
             ],
             path: "Tests"
