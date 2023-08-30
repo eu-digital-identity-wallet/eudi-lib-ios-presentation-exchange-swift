@@ -19,15 +19,6 @@
       }
     },
     {
-      "identity" : "joseswift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/niscy-eudiw/JOSESwift.git",
-      "state" : {
-        "revision" : "6af6dc327fa1bbc44c7e5d6501d4e1735c80ac8c",
-        "version" : "2.4.1"
-      }
-    },
-    {
       "identity" : "jsonschema.swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/kylef/JSONSchema.swift",

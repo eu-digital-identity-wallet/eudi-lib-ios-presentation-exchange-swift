@@ -56,11 +56,11 @@ public struct PresentationDefinition: Codable {
 
   public init(
     id: String,
-    name: Name?,
-    purpose: Purpose?,
-    formatContainer: FormatContainer?,
+    name: Name? = nil,
+    purpose: Purpose? = nil,
+    formatContainer: FormatContainer? = nil,
     inputDescriptors: [InputDescriptor],
-    submissionRequirements: [SubmissionRequirement]?) {
+    submissionRequirements: [SubmissionRequirement]? = nil) {
       self.id = id
       self.name = name
       self.purpose = purpose
