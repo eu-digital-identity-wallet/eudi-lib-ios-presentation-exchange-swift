@@ -1,7 +1,7 @@
 name: SonarCloud
 on:
   push:
-    branches: [ 'main' ]
+    branches: [ 'main', 'feature/*' ]
     tags: [ v* ]
 jobs:
   sonarcloud:
@@ -21,6 +21,7 @@ jobs:
               echo "secretspresent=NO" >> $GITHUB_OUTPUT
             else
               echo "secretspresent=YES" >> $GITHUB_OUTPUT
+              echo "PROJECTKEY=${{ github.repository_owner}}_$(echo ${{ github.repository }} | sed 's/.*\///')" >> $GITHUB_ENV
             fi
         env:
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN}}
@@ -30,8 +31,8 @@ jobs:
         with:
             args: >
                 -Dsonar.organization=${{ github.repository_owner }}
-                -Dsonar.projectKey=niscy-eudiw_presentation-exchange-swift
+                -Dsonar.projectKey=${{ env.PROJECTKEY }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}                                                                                                                                                                                                                                           
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
