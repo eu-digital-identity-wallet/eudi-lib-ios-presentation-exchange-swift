@@ -32,7 +32,7 @@ public struct InputDescriptor: Codable {
     case groups = "group"
   }
   
-  init(
+  public init(
     id: InputDescriptorId,
     name: Name?, purpose: Purpose?,
     formatContainer: FormatContainer?,
