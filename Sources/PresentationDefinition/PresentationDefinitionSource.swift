@@ -30,8 +30,7 @@ public extension PresentationDefinitionSource {
 
       self = .passByValue(presentationDefinition: presentationDefinition)
     } else if let uri = authorizationRequestObject[Constants.PRESENTATION_DEFINITION_URI] as? String,
-              let uri = URL(string: uri),
-              uri.scheme == Constants.HTTPS {
+              let uri = URL(string: uri) {
       self = .fetchByReference(url: uri)
     } else if let scope = authorizationRequestObject[Constants.SCOPE] as? String,
               !scope.components(separatedBy: " ").isEmpty {
@@ -62,8 +61,7 @@ public extension PresentationDefinitionSource {
       }
       self = .passByValue(presentationDefinition: presentationDefinition)
     } else if let presentationDefinitionUri = authorizationRequestData.presentationDefinitionUri,
-              let uri = URL(string: presentationDefinitionUri),
-              uri.scheme == Constants.HTTPS {
+              let uri = URL(string: presentationDefinitionUri) {
       self = .fetchByReference(url: uri)
     } else if let scopes = authorizationRequestData.scope?.components(separatedBy: " "),
               !scopes.isEmpty {
