@@ -31,4 +31,19 @@ public struct InputDescriptor: Codable {
     case constraints
     case groups = "group"
   }
+  
+  public init(
+    id: InputDescriptorId,
+    name: Name?, purpose: Purpose?,
+    formatContainer: FormatContainer?,
+    constraints: Constraints,
+    groups: [Group]?
+  ) {
+    self.id = id
+    self.name = name
+    self.purpose = purpose
+    self.formatContainer = formatContainer
+    self.constraints = constraints
+    self.groups = groups
+  }
 }
