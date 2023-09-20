@@ -10,6 +10,6 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v6
       - run:
-          fastlane tests # fastlane just_build
+          fastlane tests
