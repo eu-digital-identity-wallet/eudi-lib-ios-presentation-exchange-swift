@@ -38,6 +38,9 @@ platform :ios do
   
   desc "Runs unit tests"
   lane :tests do
+    
+    sh("ls /Applications/")
+
     params = {
       package_path: '.',
       scheme: 'PresentationExchange',
