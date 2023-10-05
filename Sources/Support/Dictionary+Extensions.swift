@@ -93,7 +93,10 @@ public extension Dictionary where Key == String, Value == Any {
     }
 
     guard let jsonResult = jsonObject as? Self else {
-      return .failure(.mappingFail(value: jsonObject, toType: Self.Type.self))
+      return .failure(.mappingFail(
+        value: String(describing: jsonObject),
+        toType: String(describing: Self.Type.self)
+      ))
     }
 
     return .success(jsonResult)

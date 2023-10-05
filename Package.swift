@@ -41,7 +41,8 @@ let package = Package(
             path: "Sources",
             resources: [
               .process("Resources")
-            ]
+            ],
+            swiftSettings: [ .unsafeFlags(["-Xfrontend", "-warn-concurrency"])]
         ),
         .testTarget(
             name: "PresentationExchangeTests",
