@@ -19,7 +19,7 @@ public enum JSONParseError: LocalizedError {
   case fileNotFound(filename: String)
   case dataInitialisation(Error)
   case jsonSerialization(Error)
-  case mappingFail(value: Any, toType: Any)
+  case mappingFail(value: String, toType: String)
   case invalidJSON
   case invalidJWT
   case notSupportedOperation

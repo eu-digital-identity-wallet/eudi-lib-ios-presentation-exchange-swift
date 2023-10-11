@@ -39,7 +39,7 @@ class ErrorTests: XCTestCase {
   func testErrorDescriptionMappingFail() {
     let value = 123
     let toType = String.self
-    let error = JSONParseError.mappingFail(value: value, toType: toType)
+    let error = JSONParseError.mappingFail(value: String(describing: value), toType: String(describing: toType))
     XCTAssertEqual(error.errorDescription, ".mappingFail from: \(value) to: \(toType)")
   }
   
