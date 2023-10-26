@@ -1,7 +1,7 @@
 name: SAST - SonarCloud
 on:
   push:
-    branches: [ 'main', 'release/*', 'feature/*' ]
+    branches: [ 'main', 'release/*', 'feature/*', 'fix/*' ]
     tags: [ v* ]
   pull_request_target:
   workflow_dispatch:
