@@ -23,7 +23,7 @@ struct TestsConstants {
   static let testClaimsBankAndPassport = [
     Claim(
       id: "samplePassport",
-      format: .ldp,
+      format: "LDP",
       jsonObject: [
         "credentialSchema":
           [
@@ -37,7 +37,7 @@ struct TestsConstants {
       ),
     Claim(
       id: "sampleBankAccount",
-      format: .jwt,
+      format: "JWT",
       jsonObject: [
         "issuer": "did:example:123",
         "credentialSchema":

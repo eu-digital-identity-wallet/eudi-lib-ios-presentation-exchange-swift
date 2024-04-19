@@ -118,7 +118,7 @@ final class PresentationTests: XCTestCase {
     let presentationDefinition = try! result.get()
     let format = presentationDefinition.inputDescriptors.first!.formatContainer!.formats.first
     
-    XCTAssertTrue(format!.designation == .msoMdoc)
+    XCTAssertTrue(format!["designation"].string?.lowercased() == "mso_mdoc")
   }
   
   func testValidateFormatExamplePresentationDefinitionExpectedData() throws {
@@ -133,7 +133,7 @@ final class PresentationTests: XCTestCase {
 
     let formats = presentationDefinition.formatContainer!.formats
     
-    XCTAssert(!formats.filter { $0.designation == .jwt}.isEmpty)
+    XCTAssert(!formats.filter { $0["designation"].string?.lowercased() == "jwt" }.isEmpty)
   }
   
   func testAuthorizationRequestDataGivenValidInput() throws {
@@ -173,8 +173,8 @@ final class PresentationTests: XCTestCase {
     )
     
     let presentationDefinition = try! result.get()
-    let format = presentationDefinition.formatContainer!.formats.filter { $0.designation == .sdJwt}.first
+    let format = presentationDefinition.formatContainer!.formats.filter { $0["designation"].string?.lowercased() == "sd_jwt"}.first
     
-    XCTAssertTrue(format!.designation == .sdJwt)
+    XCTAssertTrue(format!["designation"].string == "sd_jwt")
   }
 }

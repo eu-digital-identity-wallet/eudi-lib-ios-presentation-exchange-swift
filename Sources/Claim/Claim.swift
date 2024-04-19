@@ -17,12 +17,12 @@ import Foundation
 
 public struct Claim {
   public let id: ClaimId
-  public let format: FormatDesignation
+  public let format: String
   public let jsonObject: JSONObject
 
   public init(
     id: ClaimId,
-    format: FormatDesignation,
+    format: String,
     jsonObject: JSONObject
   ) {
     self.id = id
