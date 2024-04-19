@@ -23,7 +23,11 @@ let package = Package(
       .package(
         url: "https://github.com/birdrides/mockingbird.git",
         .upToNextMinor(from: "0.20.0")
-      )
+      ),
+      .package(
+        url: "https://github.com/SwiftyJSON/SwiftyJSON.git",
+        from: "4.0.0"
+      ),
     ],
     targets: [
         .target(
@@ -36,6 +40,10 @@ let package = Package(
               .product(
                 name: "JSONSchema",
                 package: "JSONSchema.swift"
+              ),
+              .product(
+                name: "SwiftyJSON",
+                package: "SwiftyJSON"
               ),
             ],
             path: "Sources",
@@ -58,6 +66,10 @@ let package = Package(
               .product(
                 name: "Sextant",
                 package: "Sextant"
+              ),
+              .product(
+                name: "SwiftyJSON",
+                package: "SwiftyJSON"
               )
             ],
             path: "Tests"

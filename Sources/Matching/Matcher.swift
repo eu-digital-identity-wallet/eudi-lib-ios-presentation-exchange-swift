@@ -16,6 +16,7 @@
 import Foundation
 import Sextant
 import JSONSchema
+import SwiftyJSON
 
 public typealias ClaimsEvaluation = [ClaimId: [InputDescriptorId: InputDescriptorEvaluation]]
 public typealias InputDescriptorEvaluationPerClaim = [InputDescriptorId: [ClaimId: InputDescriptorEvaluation]]
@@ -61,7 +62,7 @@ public class PresentationMatcher: PresentationMatcherType {
 
 private extension PresentationMatcher {
   private func matchInputDescriptors(
-    presentationDefinitionFormat: [Format]?,
+    presentationDefinitionFormat: [JSON]?,
     inputDescriptors: [InputDescriptor],
     claim: Claim
   ) -> [InputDescriptorId: InputDescriptorEvaluation] {
@@ -78,7 +79,7 @@ private extension PresentationMatcher {
   }
 
   private func evaluate(
-    presentationDefinitionFormat: [Format]?,
+    presentationDefinitionFormat: [JSON]?,
     inputDescriptor: InputDescriptor,
     claim: Claim
   ) -> InputDescriptorEvaluation {
@@ -98,15 +99,15 @@ private extension PresentationMatcher {
 
   private func isFormatSupported(
     inputDescriptor: InputDescriptor,
-    presentationDefinitionFormat: [Format]?,
-    claimFormat: FormatDesignation
+    presentationDefinitionFormat: [JSON]?,
+    claimFormat: String
   ) -> Bool {
 
-    guard let formats: [Format] = inputDescriptor.formatContainer?.formats ?? presentationDefinitionFormat else {
+    guard let formats: [JSON] = inputDescriptor.formatContainer?.formats ?? presentationDefinitionFormat else {
       return true
     }
 
-    return formats.map { $0.designation }.contains(where: { $0 == claimFormat })
+    return formats.compactMap { $0["designation"].string }.contains(where: { $0 == claimFormat })
   }
 
   private func checkFieldConstraints(
