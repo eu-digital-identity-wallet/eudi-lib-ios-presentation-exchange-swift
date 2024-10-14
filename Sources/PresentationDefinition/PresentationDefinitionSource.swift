@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import Foundation
+import SwiftyJSON
 
 public enum PresentationDefinitionSource {
   case passByValue(presentationDefinition: PresentationDefinition)
@@ -22,17 +23,17 @@ public enum PresentationDefinitionSource {
 }
 
 public extension PresentationDefinitionSource {
-  init(authorizationRequestObject: JSONObject) throws {
-    if let presentationDefinitionObject = authorizationRequestObject[Constants.PRESENTATION_DEFINITION] as? JSONObject {
+  init(authorizationRequestObject: JSON) throws {
+    if let presentationDefinitionObject = authorizationRequestObject[Constants.PRESENTATION_DEFINITION].dictionary {
 
       let jsonData = try JSONSerialization.data(withJSONObject: presentationDefinitionObject, options: [])
       let presentationDefinition = try JSONDecoder().decode(PresentationDefinition.self, from: jsonData)
 
       self = .passByValue(presentationDefinition: presentationDefinition)
-    } else if let uri = authorizationRequestObject[Constants.PRESENTATION_DEFINITION_URI] as? String,
+    } else if let uri = authorizationRequestObject[Constants.PRESENTATION_DEFINITION_URI].string,
               let uri = URL(string: uri) {
       self = .fetchByReference(url: uri)
-    } else if let scope = authorizationRequestObject[Constants.SCOPE] as? String,
+    } else if let scope = authorizationRequestObject[Constants.SCOPE].string,
               !scope.components(separatedBy: " ").isEmpty {
       self = .implied(scope: scope.components(separatedBy: " "))
 

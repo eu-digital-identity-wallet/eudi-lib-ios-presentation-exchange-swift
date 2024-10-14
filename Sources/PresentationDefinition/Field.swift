@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 import Foundation
+import SwiftyJSON
 
 public struct Field: Codable, Hashable {
   public let paths: [String]
-  public let filter: JSONObject?
+  public let filter: JSON?
   public let purpose: String?
   public let intentToRetain: Bool?
   public let optional: Bool?
@@ -30,7 +31,7 @@ public struct Field: Codable, Hashable {
 
   public init(
     paths: [String],
-    filter: JSONObject?,
+    filter: JSON?,
     purpose: String?,
     intentToRetain: Bool?,
     optional: Bool?) {
@@ -44,7 +45,7 @@ public struct Field: Codable, Hashable {
   public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     paths = try container.decode([String].self, forKey: .path)
-    filter = try? container.decode(JSONObject.self, forKey: .filter)
+    filter = try? container.decode(JSON.self, forKey: .filter)
     purpose = try? container.decode(String.self, forKey: .purpose)
     intentToRetain = try? container.decode(Bool.self, forKey: .intentToRetain)
     optional = try? container.decode(Bool.self, forKey: .optional)
@@ -62,11 +63,8 @@ public struct Field: Codable, Hashable {
   public func hash(into hasher: inout Hasher) {
     hasher.combine(paths)
     if let filter = filter {
-      for (key, value) in filter {
+      for (key, _) in filter {
         hasher.combine(key)
-        if let value = value as? String {
-          hasher.combine(value)
-        }
       }
     }
     hasher.combine(purpose)
@@ -77,6 +75,6 @@ public struct Field: Codable, Hashable {
     return lhs.paths == rhs.paths &&
            lhs.purpose == rhs.purpose &&
            lhs.intentToRetain == rhs.intentToRetain &&
-           lhs.filter ?? JSONObject() == rhs.filter ?? JSONObject()
+           lhs.filter ?? JSON() == rhs.filter ?? JSON()
   }
 }
