@@ -24,7 +24,7 @@ public enum PresentationDefinitionSource {
 
 public extension PresentationDefinitionSource {
   init(authorizationRequestObject: JSON) throws {
-    if let presentationDefinitionObject = authorizationRequestObject[Constants.PRESENTATION_DEFINITION].dictionary {
+    if let presentationDefinitionObject = authorizationRequestObject[Constants.PRESENTATION_DEFINITION].dictionaryObject {
 
       let jsonData = try JSONSerialization.data(withJSONObject: presentationDefinitionObject, options: [])
       let presentationDefinition = try JSONDecoder().decode(PresentationDefinition.self, from: jsonData)
