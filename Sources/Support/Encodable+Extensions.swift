@@ -14,20 +14,18 @@
  * limitations under the License.
  */
 import Foundation
-@preconcurrency import SwiftyJSON
 
-public struct Claim: Sendable {
-  public let id: ClaimId
-  public let format: String
-  public let jsonObject: JSON
-
-  public init(
-    id: ClaimId,
-    format: String,
-    jsonObject: JSON
-  ) {
-    self.id = id
-    self.format = format
-    self.jsonObject = jsonObject
+extension Encodable {
+  func toJSONString(outputFormatting: JSONEncoder.OutputFormatting = .prettyPrinted) throws -> String {
+    let encoder = JSONEncoder()
+    encoder.outputFormatting = outputFormatting
+    
+    let jsonData = try encoder.encode(self)
+    
+    if let jsonString = String(data: jsonData, encoding: .utf8) {
+      return jsonString
+    } else {
+      throw PresentationError.invalidFormat
+    }
   }
 }

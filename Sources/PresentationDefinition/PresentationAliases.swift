@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 import Foundation
+import SwiftyJSON
 
-public typealias Filter = JSONObject
+public typealias Filter = JSON
 public typealias ClaimId = String
 public typealias Purpose = String
 public typealias Name = String

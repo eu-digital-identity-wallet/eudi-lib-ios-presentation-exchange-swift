@@ -134,7 +134,7 @@ private extension PresentationMatcher {
     with field: Field
   ) -> CandidateField {
     for path in field.paths {
-      let json = claim.jsonObject.toJSONString()
+      let json = try? claim.jsonObject.toJSONString()
       if let values = json?.query(values: path)?.compactMap({ $0 }),
          let value = values.first as? String,
          filter(
@@ -157,12 +157,15 @@ private extension PresentationMatcher {
 
     // Note: the JSONSchema validation library does not support
     // date validation as of 0.6.0
-    if let date = filter["format"] as? String, date == "date" {
+    if let date = filter["format"].string, date == "date" {
       return value.isValidDate()
     }
 
     do {
-      let result = try JSONSchema.validate(value, schema: filter)
+      let result = try JSONSchema.validate(
+        value,
+        schema: filter.dictionaryObject ?? [:]
+      )
       return result.valid
 
     } catch {
@@ -236,7 +239,7 @@ extension PresentationMatcher: EvaluatorType {
     candidateClaims: InputDescriptorEvaluationPerClaim,
     notMatchingClaims: InputDescriptorEvaluationPerClaim
   ) -> Match {
-    if let submissionRequirements = definition.submissionRequirements {
+    if definition.submissionRequirements != nil {
       return .notMatched(details: [:])
 
     } else {

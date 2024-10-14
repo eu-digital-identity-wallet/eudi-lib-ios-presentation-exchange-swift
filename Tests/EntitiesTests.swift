@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 import XCTest
+import SwiftyJSON
+
 @testable import PresentationExchange
 
 class EntitiesTests: XCTestCase {
@@ -262,7 +264,7 @@ class AuthorizationRequestUnprocessedDataTests: XCTestCase {
 final class PresentationDefinitionSourceTests: XCTestCase {
     
   func testInitFromAuthorizationRequestObjectWithPresentationDefinitionUri() throws {
-    let authorizationRequestObject: JSONObject = [
+    let authorizationRequestObject: JSON = [
         "presentation_definition_uri": "https://example.com/presentation-definition"
     ]
     
@@ -277,7 +279,7 @@ final class PresentationDefinitionSourceTests: XCTestCase {
   }
   
   func testInitFromAuthorizationRequestObjectWithScope() throws {
-    let authorizationRequestObject: JSONObject = [
+    let authorizationRequestObject: JSON = [
         "scope": "openid email profile"
     ]
     
@@ -292,7 +294,7 @@ final class PresentationDefinitionSourceTests: XCTestCase {
   }
   
   func testInitFromAuthorizationRequestObjectWithInvalidPresentationDefinition() {
-    let authorizationRequestObject: JSONObject = [:]
+    let authorizationRequestObject: JSON = [:]
     
     XCTAssertThrowsError(try PresentationDefinitionSource(authorizationRequestObject: authorizationRequestObject)) { error in
       XCTAssertEqual(error as? PresentationError, PresentationError.invalidPresentationDefinition)

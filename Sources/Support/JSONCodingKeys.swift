@@ -15,8 +15,6 @@
  */
 import Foundation
 
-public typealias JSONObject = [String: Any]
-
 public struct JSONCodingKeys: CodingKey {
   public var stringValue: String
 
