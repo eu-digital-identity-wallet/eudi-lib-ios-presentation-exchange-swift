@@ -39,9 +39,14 @@ public extension PresentationDefinitionSource {
         throw PresentationError.invalidPresentationDefinition
       }
       
-      let presentationDefinition = try JSONDecoder().decode(PresentationDefinition.self, from: jsonData)
+      if let container = try? JSONDecoder().decode(PresentationDefinitionContainer.self, from: jsonData) {
+        self = .passByValue(presentationDefinition: container.definition)
+      } else {
+        let definition = try JSONDecoder().decode(PresentationDefinition.self, from: jsonData)
+        self = .passByValue(presentationDefinition: definition)
+      }
 
-      self = .passByValue(presentationDefinition: presentationDefinition)
+      
     } else if let scope = authorizationRequestObject[Constants.SCOPE].string,
               !scope.components(separatedBy: " ").isEmpty {
       self = .implied(scope: scope.components(separatedBy: " "))
