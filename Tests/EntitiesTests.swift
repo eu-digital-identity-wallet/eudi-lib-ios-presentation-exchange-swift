@@ -201,7 +201,7 @@ class AuthorizationRequestUnprocessedDataTests: XCTestCase {
         "presentation_definition_uri": "https://example.com/definition",
         "request": "request",
         "request_uri": "https://example.com/request",
-        "client_meta_data": "clientMetaData",
+        "client_metadata": "clientMetaData",
         "client_id": "clientId",
         "client_metadata_uri": "https://example.com/metadata",
         "client_id_scheme": "clientScheme",
@@ -237,7 +237,7 @@ class AuthorizationRequestUnprocessedDataTests: XCTestCase {
   }
   
   func testInitFromURL() {
-    let url = URL(string: "https://example.com?response_type=code&response_uri=https%3A%2F%2Fexample.com%2Fresponse&redirect_uri=https%3A%2F%2Fexample.com%2Fredirect&presentation_definition=presentationDefinition&presentation_definition_uri=https%3A%2F%2Fexample.com%2Fdefinition&request=request&request_uri=https%3A%2F%2Fexample.com%2Frequest&client_meta_data=clientMetaData&client_id=clientId&client_metadata_uri=https%3A%2F%2Fexample.com%2Fmetadata&client_id_scheme=clientScheme&nonce=nonce&scope=scope&response_mode=responseMode&state=state&id_token_type=idTokenType")!
+    let url = URL(string: "https://example.com?response_type=code&response_uri=https%3A%2F%2Fexample.com%2Fresponse&redirect_uri=https%3A%2F%2Fexample.com%2Fredirect&presentation_definition=presentationDefinition&presentation_definition_uri=https%3A%2F%2Fexample.com%2Fdefinition&request=request&request_uri=https%3A%2F%2Fexample.com%2Frequest&client_metadata=clientMetaData&client_id=clientId&client_metadata_uri=https%3A%2F%2Fexample.com%2Fmetadata&client_id_scheme=clientScheme&nonce=nonce&scope=scope&response_mode=responseMode&state=state&id_token_type=idTokenType")!
     
     let data = AuthorisationRequestObject(from: url)
     

@@ -46,7 +46,7 @@ public struct AuthorisationRequestObject: Codable {
     case presentationDefinition = "presentation_definition"
     case presentationDefinitionUri = "presentation_definition_uri"
     case clientId = "client_id"
-    case clientMetaData = "client_meta_data"
+    case clientMetaData = "client_metadata"
     case clientMetadataUri = "client_metadata_uri"
     case clientIdScheme = "client_id_scheme"
     case nonce
