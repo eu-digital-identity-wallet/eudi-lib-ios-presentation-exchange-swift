@@ -33,6 +33,15 @@ public extension PresentationDefinitionSource {
     } else if let uri = authorizationRequestObject[Constants.PRESENTATION_DEFINITION_URI].string,
               let uri = URL(string: uri) {
       self = .fetchByReference(url: uri)
+    } else if let presentationDefinitionString = authorizationRequestObject[Constants.PRESENTATION_DEFINITION].string {
+      
+      guard let jsonData = presentationDefinitionString.data(using: .utf8) else {
+        throw PresentationError.invalidPresentationDefinition
+      }
+      
+      let presentationDefinition = try JSONDecoder().decode(PresentationDefinition.self, from: jsonData)
+
+      self = .passByValue(presentationDefinition: presentationDefinition)
     } else if let scope = authorizationRequestObject[Constants.SCOPE].string,
               !scope.components(separatedBy: " ").isEmpty {
       self = .implied(scope: scope.components(separatedBy: " "))
