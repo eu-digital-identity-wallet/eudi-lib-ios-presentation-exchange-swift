@@ -45,7 +45,6 @@ public extension PresentationDefinitionSource {
         let definition = try JSONDecoder().decode(PresentationDefinition.self, from: jsonData)
         self = .passByValue(presentationDefinition: definition)
       }
-
       
     } else if let scope = authorizationRequestObject[Constants.SCOPE].string,
               !scope.components(separatedBy: " ").isEmpty {
