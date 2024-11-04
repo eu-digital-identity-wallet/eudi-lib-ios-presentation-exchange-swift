@@ -27,6 +27,7 @@ public struct AuthorisationRequestObject: Codable {
   public let presentationDefinitionUri: String?
   public let request: String?
   public let requestUri: String?
+  public let requestUriMethod: String?
   public let clientMetaData: String?
   public let clientId: String?
   public let clientMetadataUri: String?
@@ -45,7 +46,7 @@ public struct AuthorisationRequestObject: Codable {
     case presentationDefinition = "presentation_definition"
     case presentationDefinitionUri = "presentation_definition_uri"
     case clientId = "client_id"
-    case clientMetaData = "client_meta_data"
+    case clientMetaData = "client_metadata"
     case clientMetadataUri = "client_metadata_uri"
     case clientIdScheme = "client_id_scheme"
     case nonce
@@ -55,6 +56,7 @@ public struct AuthorisationRequestObject: Codable {
     case idTokenType = "id_token_type"
     case request
     case requestUri = "request_uri"
+    case requestUriMethod = "request_uri_method"
     case supportedAlgorithm = "supported_algorithm"
   }
 
@@ -66,6 +68,7 @@ public struct AuthorisationRequestObject: Codable {
     presentationDefinitionUri: String? = nil,
     request: String? = nil,
     requestUri: String? = nil,
+    requestUriMethod: String? = nil,
     clientMetaData: String? = nil,
     clientId: String? = nil,
     clientMetadataUri: String? = nil,
@@ -84,6 +87,7 @@ public struct AuthorisationRequestObject: Codable {
     self.presentationDefinitionUri = presentationDefinitionUri
     self.request = request
     self.requestUri = requestUri
+    self.requestUriMethod = requestUriMethod
     self.clientMetaData = clientMetaData
     self.clientId = clientId
     self.clientMetadataUri = clientMetadataUri
@@ -119,7 +123,8 @@ public struct AuthorisationRequestObject: Codable {
 
     request = try? container.decode(String.self, forKey: .request)
     requestUri = try? container.decode(String.self, forKey: .requestUri)
-
+    requestUriMethod = try? container.decode(String.self, forKey: .requestUriMethod)
+    
     supportedAlgorithm = try? container.decode(String.self, forKey: .supportedAlgorithm)
   }
 
@@ -147,7 +152,8 @@ public struct AuthorisationRequestObject: Codable {
 
     try? container.encode(request, forKey: .request)
     try? container.encode(requestUri, forKey: .requestUri)
-
+    try? container.encode(requestUriMethod, forKey: .requestUriMethod)
+    
     try? container.encode(supportedAlgorithm, forKey: .supportedAlgorithm)
   }
 }
@@ -177,7 +183,8 @@ public extension AuthorisationRequestObject {
 
     request = parameters?[CodingKeys.request.rawValue] as? String
     requestUri = parameters?[CodingKeys.requestUri.rawValue] as? String
-
+    requestUriMethod = parameters?[CodingKeys.requestUriMethod.rawValue] as? String
+    
     supportedAlgorithm = parameters?[CodingKeys.supportedAlgorithm.rawValue] as? String
   }
 }
