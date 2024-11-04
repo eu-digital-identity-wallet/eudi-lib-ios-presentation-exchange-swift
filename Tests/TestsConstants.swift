@@ -18,8 +18,6 @@ import Foundation
 
 struct TestsConstants {
   
-  // MARK: - Claims
-  
   static let testClaimsBankAndPassport = [
     Claim(
       id: "samplePassport",
