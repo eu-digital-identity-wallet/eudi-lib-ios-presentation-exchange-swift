@@ -1,4 +1,5 @@
 {
+  "originHash" : "0824056f361d3e69cb3e7e310d7a61a086021a479feaf4ed2a083935b70ee235",
   "pins" : [
     {
       "identity" : "chronometer",
@@ -77,10 +78,10 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SwiftyJSON/SwiftyJSON.git",
       "state" : {
-        "revision" : "2b6054efa051565954e1d2b9da831680026cd768",
-        "version" : "4.3.0"
+        "revision" : "af76cf3ef710b6ca5f8c05f3a31307d44a3c5828",
+        "version" : "5.0.2"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
