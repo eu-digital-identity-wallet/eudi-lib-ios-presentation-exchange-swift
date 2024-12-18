@@ -135,13 +135,22 @@ private extension PresentationMatcher {
   ) -> CandidateField {
     for path in field.paths {
       let json = try? claim.jsonObject.toJSONString()
-      if let values = json?.query(values: path)?.compactMap({ $0 }),
-         let value = values.first as? String,
-         filter(
-          value: value,
-          with: field.filter
-         ) {
-        return .found(path: path, content: value)
+      if let values = json?.query(values: path)?.compactMap({ $0 }) {
+        if let value = values.first as? String {
+          if filter(
+           value: value,
+           with: field.filter
+          ) {
+            return .found(path: path, content: JSON(value))
+          }
+        } else if let value = values.first as? JSON {
+          if filter(
+           value: value,
+           with: field.filter
+          ) {
+            return .found(path: path, content: value)
+          }
+        }
       }
     }
     return field.optional == true ? .optionalFieldNotFound : .requiredFieldNotFound
@@ -173,6 +182,26 @@ private extension PresentationMatcher {
     }
   }
 
+  private func filter(
+    value: JSON,
+    with filter: Filter?
+  ) -> Bool {
+    guard let filter = filter else {
+      return true
+    }
+
+    do {
+      let result = try JSONSchema.validate(
+        value,
+        schema: filter.dictionaryObject ?? [:]
+      )
+      return result.valid
+
+    } catch {
+      return false
+    }
+  }
+  
   private func splitPerDescriptor(
     presentationDefinition: PresentationDefinition,
     claimsEvaluation: ClaimsEvaluation

@@ -14,14 +14,15 @@
  * limitations under the License.
  */
 import Foundation
+import SwiftyJSON
 
 public enum CandidateField: Equatable, CustomDebugStringConvertible {
   case requiredFieldNotFound
   case optionalFieldNotFound
-  case found(path: JSONPath, content: String)
+  case found(path: JSONPath, content: JSON)
   case predicateEvaluated(path: JSONPath, predicateEvaluation: Bool)
 
-  public init(path: JSONPath, content: String) {
+  public init(path: JSONPath, content: JSON) {
     self = .found(path: path, content: content)
   }
 
