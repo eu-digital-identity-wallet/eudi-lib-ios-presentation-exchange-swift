@@ -26,6 +26,7 @@ public struct AuthorisationRequestObject: Codable {
   public let redirectUri: String?
   public let presentationDefinition: String?
   public let presentationDefinitionUri: String?
+  public let dcqlQuery: JSON?
   public let request: String?
   public let requestUri: String?
   public let requestUriMethod: String?
@@ -47,6 +48,7 @@ public struct AuthorisationRequestObject: Codable {
     case redirectUri = "redirect_uri"
     case presentationDefinition = "presentation_definition"
     case presentationDefinitionUri = "presentation_definition_uri"
+    case dcqlQuery = "dcql_query"
     case clientId = "client_id"
     case clientMetaData = "client_metadata"
     case clientMetadataUri = "client_metadata_uri"
@@ -69,6 +71,7 @@ public struct AuthorisationRequestObject: Codable {
     redirectUri: String? = nil,
     presentationDefinition: String? = nil,
     presentationDefinitionUri: String? = nil,
+    dcqlQuery: JSON? = nil,
     request: String? = nil,
     requestUri: String? = nil,
     requestUriMethod: String? = nil,
@@ -89,6 +92,7 @@ public struct AuthorisationRequestObject: Codable {
     self.redirectUri = redirectUri
     self.presentationDefinition = presentationDefinition
     self.presentationDefinitionUri = presentationDefinitionUri
+    self.dcqlQuery = dcqlQuery
     self.request = request
     self.requestUri = requestUri
     self.requestUriMethod = requestUriMethod
@@ -113,6 +117,7 @@ public struct AuthorisationRequestObject: Codable {
     
     presentationDefinition = try? container.decode(String.self, forKey: .presentationDefinition)
     presentationDefinitionUri = try? container.decode(String.self, forKey: .presentationDefinitionUri)
+    dcqlQuery = try? container.decode(JSON.self, forKey: .dcqlQuery)
     
     clientId = try? container.decode(String.self, forKey: .clientId)
     clientMetaData = try? container.decode(String.self, forKey: .clientMetaData)
@@ -144,6 +149,7 @@ public struct AuthorisationRequestObject: Codable {
     
     try? container.encode(presentationDefinition, forKey: .presentationDefinition)
     try? container.encode(presentationDefinitionUri, forKey: .presentationDefinitionUri)
+    try? container.encode(dcqlQuery, forKey: .dcqlQuery)
     
     try? container.encode(clientId, forKey: .clientId)
     try? container.encode(clientMetaData, forKey: .clientMetaData)
@@ -176,6 +182,13 @@ public extension AuthorisationRequestObject {
     
     presentationDefinition = parameters?[CodingKeys.presentationDefinition.rawValue] as? String
     presentationDefinitionUri = parameters?[CodingKeys.presentationDefinitionUri.rawValue] as? String
+    
+    if let dcqlString = parameters?[CodingKeys.dcqlQuery.rawValue] as? String,
+       let jsonData = dcqlString.data(using: .utf8) {
+      dcqlQuery = try? JSON(data: jsonData)
+    } else {
+      dcqlQuery = nil
+    }
     
     clientId = parameters?[CodingKeys.clientId.rawValue] as? String
     clientMetaData = parameters?[CodingKeys.clientMetaData.rawValue] as? String
