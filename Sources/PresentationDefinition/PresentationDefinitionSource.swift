@@ -16,7 +16,7 @@
 import Foundation
 import SwiftyJSON
 
-public enum PresentationDefinitionSource {
+public enum PresentationDefinitionSource: Sendable {
   case passByValue(presentationDefinition: PresentationDefinition)
   case fetchByReference(url: URL)
   case implied(scope: [String])
