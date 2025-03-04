@@ -13,18 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-public enum ClaimFormat: Equatable {
+public enum ClaimFormat: Equatable, Sendable {
   case msoMdoc
   case jwtType(JWTType)
   case ldpType(LDPType)
 
-  public enum JWTType {
+  public enum JWTType: Sendable {
     case jwt
     case jwt_vc
     case jwt_vp
   }
 
-  public enum LDPType {
+  public enum LDPType: Sendable {
     case ldp
     case ldp_vc
     case ldp_vp
