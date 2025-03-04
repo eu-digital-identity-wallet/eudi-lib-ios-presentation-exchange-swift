@@ -15,7 +15,7 @@
  */
 import Foundation
 
-public struct SubmissionRequirement: Codable {
+public struct SubmissionRequirement: Codable, Sendable {
   public let rule: Rule
   public let count: Int?
   public let min: Int?

@@ -15,7 +15,7 @@
  */
 import Foundation
 
-public struct Constraints: Codable {
+public struct Constraints: Codable, Sendable {
   public let fields: [Field]
 
   enum CodingKeys: String, CodingKey {

@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 import Foundation
-import SwiftyJSON
+@preconcurrency import SwiftyJSON
 
-public struct Field: Codable, Hashable {
+public struct Field: Codable, Hashable, Sendable {
   public let paths: [String]
   public let filter: JSON?
   public let purpose: String?

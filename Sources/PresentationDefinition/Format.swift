@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 import Foundation
-import SwiftyJSON
+@preconcurrency import SwiftyJSON
 
-public struct FormatContainer: Codable, Equatable {
+public struct FormatContainer: Codable, Equatable, Sendable {
   public let formats: [JSON]
 
   enum Key: String, CodingKey {
