@@ -20,27 +20,28 @@ import SwiftyJSON
  *
  * https://openid.net/specs/openid-4-verifiable-presentations-1_0.html#name-authorization-request
  */
-public struct AuthorisationRequestObject: Codable {
-  public let responseType: String?
-  public let responseUri: String?
-  public let redirectUri: String?
-  public let presentationDefinition: String?
-  public let presentationDefinitionUri: String?
-  public let dcqlQuery: JSON?
-  public let request: String?
-  public let requestUri: String?
-  public let requestUriMethod: String?
-  public let clientMetaData: String?
-  public let clientId: String?
-  public let clientMetadataUri: String?
-  public let clientIdScheme: String?
-  public let nonce: String?
-  public let scope: String?
-  public let responseMode: String?
-  public let state: String? // OpenId4VP specific, not utilized from ISO-23330-4
-  public let idTokenType: String?
-  public let supportedAlgorithm: String?
-  public let transactionData: [String]?
+@available(*, deprecated, message: "Not supported.")
+internal struct AuthorisationRequestObject: Codable {
+  let responseType: String?
+  let responseUri: String?
+  let redirectUri: String?
+  let presentationDefinition: String?
+  let presentationDefinitionUri: String?
+  let dcqlQuery: JSON?
+  let request: String?
+  let requestUri: String?
+  let requestUriMethod: String?
+  let clientMetaData: String?
+  let clientId: String?
+  let clientMetadataUri: String?
+  let clientIdScheme: String?
+  let nonce: String?
+  let scope: String?
+  let responseMode: String?
+  let state: String? // OpenId4VP specific, not utilized from ISO-23330-4
+  let idTokenType: String?
+  let supportedAlgorithm: String?
+  let transactionData: [String]?
   
   enum CodingKeys: String, CodingKey {
     case responseType = "response_type"
@@ -65,7 +66,7 @@ public struct AuthorisationRequestObject: Codable {
     case transactionData = "transaction_data"
   }
   
-  public init(
+  init(
     responseType: String? = nil,
     responseUri: String? = nil,
     redirectUri: String? = nil,
@@ -109,7 +110,7 @@ public struct AuthorisationRequestObject: Codable {
     self.transactionData = transactionData
   }
   
-  public init(from decoder: Decoder) throws {
+  init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     responseType = try? container.decode(String.self, forKey: .responseType)
     responseUri = try? container.decode(String.self, forKey: .responseUri)
@@ -140,7 +141,7 @@ public struct AuthorisationRequestObject: Codable {
     transactionData = try? container.decode([String].self, forKey: .transactionData)
   }
   
-  public func encode(to encoder: Encoder) throws {
+  func encode(to encoder: Encoder) throws {
     var container = encoder.container(keyedBy: CodingKeys.self)
     
     try? container.encode(responseType, forKey: .responseType)
@@ -172,7 +173,7 @@ public struct AuthorisationRequestObject: Codable {
   }
 }
 
-public extension AuthorisationRequestObject {
+extension AuthorisationRequestObject {
   init?(from url: URL) {
     let parameters = url.queryParameters
     
@@ -214,7 +215,7 @@ public extension AuthorisationRequestObject {
   }
 }
 
-public extension AuthorisationRequestObject {
+extension AuthorisationRequestObject {
   var hasClientMetaData: Bool {
     return clientMetaData != nil || clientMetadataUri != nil
   }
