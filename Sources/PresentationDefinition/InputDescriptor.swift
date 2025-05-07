@@ -15,7 +15,7 @@
  */
 import Foundation
 
-public struct InputDescriptor: Codable {
+public struct InputDescriptor: Codable, Sendable {
   public let id: InputDescriptorId
   public let name: Name?
   public let purpose: Purpose?

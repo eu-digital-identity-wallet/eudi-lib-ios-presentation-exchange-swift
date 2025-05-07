@@ -18,7 +18,7 @@ import Foundation
 /**
  Based on https://identity.foundation/presentation-exchange/
  */
-public struct PresentationSubmissionContainer: Codable {
+public struct PresentationSubmissionContainer: Codable, Sendable {
   public let submission: PresentationSubmission
 
   enum CodingKeys: String, CodingKey {
@@ -32,7 +32,7 @@ public struct PresentationSubmissionContainer: Codable {
   }
 }
 
-public struct PresentationSubmission: Codable {
+public struct PresentationSubmission: Codable, Sendable {
   public let id: String
   public let definitionID: String
   public let descriptorMap: [DescriptorMap]

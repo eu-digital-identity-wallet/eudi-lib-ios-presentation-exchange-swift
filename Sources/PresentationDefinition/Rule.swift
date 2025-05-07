@@ -15,7 +15,7 @@
  */
 import Foundation
 
-public enum Rule: String, Codable {
+public enum Rule: String, Codable, Sendable {
   case all
   case pick
   case none

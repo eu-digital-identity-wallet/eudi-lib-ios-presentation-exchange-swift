@@ -19,7 +19,7 @@ import SwiftyJSON
 /*
  Based on https://identity.foundation/presentation-exchange/
  */
-public struct PresentationDefinitionContainer: Codable {
+public struct PresentationDefinitionContainer: Codable, Sendable {
   public  let comment: String?
   public let definition: PresentationDefinition
 
@@ -37,7 +37,7 @@ public struct PresentationDefinitionContainer: Codable {
   }
 }
 
-public struct PresentationDefinition: Codable {
+public struct PresentationDefinition: Codable, Sendable {
 
   public let id: String
   public let name: Name?
