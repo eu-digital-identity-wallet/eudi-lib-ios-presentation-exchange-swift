@@ -54,6 +54,7 @@ final class ExtensionsTests: XCTestCase {
 class URLQueryParametersTests: XCTestCase {
 
   func testQueryParameters() {
+
     // Test case with no query parameters
     let url1 = URL(string: "https://example.com")!
     XCTAssertNil(url1.queryParameters)
@@ -70,8 +71,15 @@ class URLQueryParametersTests: XCTestCase {
     
     // Test case with URL-encoded query parameters
     let url4 = URL(string: "https://example.com?param1=Hello%20World&param2=123%20%26%2045")!
-    let expectedParameters4: [String: Any] = ["param1": "Hello World", "param2": "123 "]
+    let expectedParameters4: [String: Any] = ["param1": "Hello World", "param2": "123 & 45"]
     XCTAssertEqual(url4.queryParameters as NSDictionary?, expectedParameters4 as NSDictionary?)
+
+    // Test case with complex URL-encoded query parameters
+    let url5 = URL(string: "eudi-openid4vp://example.com?client_id=x509_san_dns:example.com&request_uri=https%3A%2F%2Fexample.com%2Fcallback%2Frequest-param%3Fa%3Dalmafa%26e%3D300%26x-request-id%3D6d6c28f6-7260-4b69-a421-80c4b50ab03b%26x-correlation-id%3Dfgsgggsf%26c%3Dprimary%26s%3D66B2C0D3957D5460DA1397E00593C41B87D861FA43CB8007AB52EA9CE3284453&request_uri_method=post")!
+    let expectedParameters5: [String: Any] = ["client_id": "x509_san_dns:example.com", "request_uri": "https://example.com/callback/request-param?a=almafa&e=300&x-request-id=6d6c28f6-7260-4b69-a421-80c4b50ab03b&x-correlation-id=fgsgggsf&c=primary&s=66B2C0D3957D5460DA1397E00593C41B87D861FA43CB8007AB52EA9CE3284453", "request_uri_method": "post"]
+    XCTAssertEqual(url5.queryParameters as NSDictionary?, expectedParameters5 as NSDictionary?)
+  
+
   }
 }
 
