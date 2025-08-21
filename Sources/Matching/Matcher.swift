@@ -143,14 +143,23 @@ private extension PresentationMatcher {
           ) {
             return .found(path: path, content: JSON(value))
           }
-        } else if let value = values.first as? JSON {
-          if filter(
-           value: value,
-           with: field.filter
-          ) {
-            return .found(path: path, content: value)
-          }
         }
+          else if let value = values.first as? Bool {
+              if filter(
+                value: JSON(value),
+                with: field.filter)
+              {
+                  return .found(path: path, content: JSON(value))
+              }
+          }
+        else if let value = values.first as? JSON {
+        if filter(
+        value: value,
+        with: field.filter
+        ) {
+        return .found(path: path, content: value)
+        }
+    }
       }
     }
     return field.optional == true ? .optionalFieldNotFound : .requiredFieldNotFound
